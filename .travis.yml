@@ -23,3 +23,6 @@ before_script:
 services:
   - redis-server
   - mongodb
+branches:
+  only:
+  - restore-ignored-tests-by-PR521
