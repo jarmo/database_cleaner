@@ -36,7 +36,7 @@ module DatabaseCleaner
         MongoTest::Gadget.new({:name => 'some gadget'}.merge(attrs)).save!
       end
 
-      xit "truncates all collections by default" do
+      it "truncates all collections by default" do
         create_widget
         create_gadget
         ensure_counts(MongoTest::Widget => 1, MongoTest::Gadget => 1)
@@ -46,7 +46,7 @@ module DatabaseCleaner
 
       context "when collections are provided to the :only option" do
         let(:args) {{:only => ['MongoTest::Widget']}}
-        xit "only truncates the specified collections" do
+        it "only truncates the specified collections" do
           create_widget
           create_gadget
           ensure_counts(MongoTest::Widget => 1, MongoTest::Gadget => 1)
@@ -57,7 +57,7 @@ module DatabaseCleaner
 
       context "when collections are provided to the :except option" do
         let(:args) {{:except => ['MongoTest::Widget']}}
-        xit "truncates all but the specified collections" do
+        it "truncates all but the specified collections" do
           create_widget
           create_gadget
           ensure_counts(MongoTest::Widget => 1, MongoTest::Gadget => 1)
